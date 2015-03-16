@@ -46,12 +46,22 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     }
 
     public static class SongViewHolder extends RecyclerView.ViewHolder {
+        private View view;
         protected CircleImageView circleImageView;
         protected TextView infoTextView;
+
         public SongViewHolder(View itemView) {
             super(itemView);
-            circleImageView = (CircleImageView)itemView.findViewById(R.id.circleView);
-            infoTextView = (TextView)itemView.findViewById(R.id.info_text);
+            view = itemView;
+            circleImageView = (CircleImageView)view.findViewById(R.id.circleView);
+            infoTextView = (TextView)view.findViewById(R.id.info_text);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
     }
 

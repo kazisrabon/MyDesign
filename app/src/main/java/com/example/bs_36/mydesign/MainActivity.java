@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        cardView = (RippleView)mRecyclerView.findViewById(R.id.card_view);
+        cardView = (android.support.v7.widget.CardView)mRecyclerView.findViewById(R.id.card_view);
 
         cardViews = new ArrayList<CardView>();
         cardViews.add(new CardView("Song 1"));
