@@ -2,13 +2,17 @@ package com.example.bs_36.mydesign.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
+import com.example.bs_36.mydesign.FullScreenViewActivity;
+import com.example.bs_36.mydesign.MainActivity;
 import com.example.bs_36.mydesign.R;
 import com.example.bs_36.mydesign.model.NavDrawerItem;
 
@@ -56,6 +60,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
         imgIcon.setImageResource(navDrawerItems.get(position).getIcon());
         txtTitle.setText(navDrawerItems.get(position).getTitle());
+//        imgIcon.setOnClickListener(new OnImageClickListener(position));
 
         // displaying count
         // check whether it set visible or not
@@ -68,5 +73,24 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
         return convertView;
     }
+//    class OnImageClickListener implements OnClickListener {
+//
+//        int _postion;
+//
+//        // constructor
+//        public OnImageClickListener(int position) {
+//            this._postion = position;
+//        }
+//
+//        @Override
+//        public void onClick(View v) {
+//            // on selecting grid view image
+//            // launch full screen activity
+//            Intent i = new Intent(context, FullScreenViewActivity.class);
+//            i.putExtra("position", _postion);
+//            context.startActivity(i);
+//        }
+//
+//    }
 
 }

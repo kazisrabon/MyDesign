@@ -22,6 +22,7 @@ import android.widget.ListView;
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapter;
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapterRight;
 import com.example.bs_36.mydesign.fragment.left.HomeFragment;
+import com.example.bs_36.mydesign.fragment.left.PhotosFragment;
 import com.example.bs_36.mydesign.model.NavDrawerItem;
 import com.example.bs_36.mydesign.model.NavDrawerItemRight;
 
@@ -305,9 +306,9 @@ public class MainActivity extends ActionBarActivity {
 //            case 1:
 //                fragment = new FindPeopleFragment();
 //                break;
-//            case 2:
-//                fragment = new PhotosFragment();
-//                break;
+            case 2:
+                fragment = new PhotosFragment();
+                break;
 //            case 3:
 //                fragment = new CommunityFragment();
 //                break;
