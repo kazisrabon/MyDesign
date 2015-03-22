@@ -69,21 +69,6 @@ public class MainActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         toolbar.setTitle(R.string.title);
-//        mRecyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//        cardView = (android.support.v7.widget.CardView)mRecyclerView.findViewById(R.id.card_view);
-//
-//        cardViews = new ArrayList<CardView>();
-//        cardViews.add(new CardView("Song 1"));
-//        cardViews.add(new CardView("Song 2"));
-//        cardViews.add(new CardView("Song 3"));
-//        // specify an adapter (see also next example)
-//        mAdapter = new SongAdapter(cardViews);
-//        mRecyclerView.setAdapter(mAdapter);
         mTitle = mDrawerTitle = getTitle();
 
         // load slide menu items
