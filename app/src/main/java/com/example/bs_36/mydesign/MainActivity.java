@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapter;
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapterRight;
@@ -69,8 +70,9 @@ public class MainActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         toolbar.setTitle(R.string.title);
+        toolbar.setNavigationIcon(R.mipmap.ic_drawer);
         mTitle = mDrawerTitle = getTitle();
-
+        View view = View.inflate(this, R.layout.header,mDrawerLayout );
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
@@ -80,6 +82,7 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+        mDrawerList.addHeaderView(view);
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
 
@@ -106,6 +109,7 @@ public class MainActivity extends ActionBarActivity {
         // setting the nav drawer list adapter
         adapter = new NavDrawerListAdapter(getApplicationContext(),
                 navDrawerItems);
+//        adapter.
         mDrawerList.setAdapter(adapter);
 
         // enabling action bar app icon and behaving it as toggle button

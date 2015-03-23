@@ -25,6 +25,8 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<NavDrawerItem> navDrawerItems;
+    private static final int TYPE_ITEM = 0;
+    private static final int TYPE_SEPARATOR = 1;
 
     public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
         this.context = context;
@@ -73,24 +75,4 @@ public class NavDrawerListAdapter extends BaseAdapter {
 
         return convertView;
     }
-//    class OnImageClickListener implements OnClickListener {
-//
-//        int _postion;
-//
-//        // constructor
-//        public OnImageClickListener(int position) {
-//            this._postion = position;
-//        }
-//
-//        @Override
-//        public void onClick(View v) {
-//            // on selecting grid view image
-//            // launch full screen activity
-//            Intent i = new Intent(context, FullScreenViewActivity.class);
-//            i.putExtra("position", _postion);
-//            context.startActivity(i);
-//        }
-//
-//    }
-
 }

@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.bs_36.mydesign.CardView;
 import com.example.bs_36.mydesign.R;
@@ -48,11 +50,21 @@ public class HomeFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        ImageButton fabImageButton = (ImageButton) mRecyclerView.findViewById(R.id.fab_image_button);
         cardView = (android.support.v7.widget.CardView)mRecyclerView.findViewById(R.id.card_view);
         cardViews = new ArrayList<CardView>();
         cardViews.add(new CardView("Song 1"));
         cardViews.add(new CardView("Song 2"));
         cardViews.add(new CardView("Song 3"));
+
+//        fabImageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Toast.makeText(getActivity().getApplicationContext(), "Clicked", Toast.LENGTH_LONG).show();
+//                cardViews.add(new CardView("New Song"));
+////                mAdapter.notifyDataSetChanged();
+//            }
+//        });
         // specify an adapter (see also next example)
         mAdapter = new SongAdapter(cardViews);
         mRecyclerView.setAdapter(mAdapter);
