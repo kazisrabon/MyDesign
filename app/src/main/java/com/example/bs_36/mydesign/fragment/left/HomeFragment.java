@@ -38,14 +38,6 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         mRecyclerView = (RecyclerView)rootView.findViewById(R.id.my_recycler_view);
-
-        return rootView;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -68,5 +60,7 @@ public class HomeFragment extends Fragment {
         // specify an adapter (see also next example)
         mAdapter = new SongAdapter(cardViews);
         mRecyclerView.setAdapter(mAdapter);
+
+        return rootView;
     }
 }

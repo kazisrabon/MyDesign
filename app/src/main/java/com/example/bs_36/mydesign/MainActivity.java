@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
         toolbar.setTitle(R.string.title);
         toolbar.setNavigationIcon(R.mipmap.ic_drawer);
         mTitle = mDrawerTitle = getTitle();
-        View view = View.inflate(this, R.layout.header,mDrawerLayout );
+//        View view = View.inflate(getBaseContext(), R.layout.header,mDrawerList );
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
-        mDrawerList.addHeaderView(view);
+//        mDrawerList.addHeaderView(view);
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
 
