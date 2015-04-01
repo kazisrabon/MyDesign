@@ -24,24 +24,25 @@ import com.example.bs_36.mydesign.FullScreenViewActivity;
 public class GridViewImageAdapter extends BaseAdapter {
 
     private Activity _activity;
-    private ArrayList<String> _filePaths = new ArrayList<String>();
+//    private ArrayList<String> _filePaths = new ArrayList<String>();
+    private ArrayList<File> _fileList = new ArrayList<File>();
     private int imageWidth;
 
-    public GridViewImageAdapter(Activity activity, ArrayList<String> filePaths,
+    public GridViewImageAdapter(Activity activity, ArrayList<File> fileList,
                                 int imageWidth) {
         this._activity = activity;
-        this._filePaths = filePaths;
+        this._fileList = fileList;
         this.imageWidth = imageWidth;
     }
 
     @Override
     public int getCount() {
-        return this._filePaths.size();
+        return this._fileList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return this._filePaths.get(position);
+        return this._fileList.get(position);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class GridViewImageAdapter extends BaseAdapter {
         }
 
         // get screen dimensions
-        Bitmap image = decodeFile(_filePaths.get(position), imageWidth,
+        Bitmap image = decodeFile(_fileList.get(position), imageWidth,
                 imageWidth);
 
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -96,10 +97,10 @@ public class GridViewImageAdapter extends BaseAdapter {
     /*
      * Resizing image size
      */
-    public static Bitmap decodeFile(String filePath, int WIDTH, int HIGHT) {
+    public static Bitmap decodeFile(File file, int WIDTH, int HIGHT) {
         try {
 
-            File f = new File(filePath);
+            File f = file;
 
             BitmapFactory.Options o = new BitmapFactory.Options();
             o.inJustDecodeBounds = true;

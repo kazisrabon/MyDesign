@@ -8,8 +8,6 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,27 +16,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapter;
 import com.example.bs_36.mydesign.adapter.NavDrawerListAdapterRight;
-import com.example.bs_36.mydesign.fragment.left.HomeFragment;
+import com.example.bs_36.mydesign.fragment.left.CalenderFragment;
+import com.example.bs_36.mydesign.fragment.left.MusicFragment;
 import com.example.bs_36.mydesign.fragment.left.PhotosFragment;
 import com.example.bs_36.mydesign.model.NavDrawerItem;
 import com.example.bs_36.mydesign.model.NavDrawerItemRight;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
     Toolbar toolbar;
-//    private RecyclerView mRecyclerView;
-//    private RecyclerView.Adapter mAdapter;
-//    private LinearLayoutManager mLayoutManager;
-//    List<CardView> cardViews;
-//    android.support.v7.widget.CardView cardView;
-//Navigation Drawer
     private DrawerLayout mDrawerLayout;
 //    Left drawer
     private ListView mDrawerList;
@@ -268,7 +259,12 @@ public class MainActivity extends ActionBarActivity {
             mDrawerLayout.closeDrawers();
             return;
         }
-        super.onBackPressed();
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
     /**
      * Slide menu item click listener
@@ -290,13 +286,16 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new MusicFragment();
+                getSupportActionBar().show();
                 break;
-//            case 1:
-//                fragment = new FindPeopleFragment();
-//                break;
+            case 1:
+                fragment = new CalenderFragment();
+                getSupportActionBar().hide();
+                break;
             case 2:
                 fragment = new PhotosFragment();
+                getSupportActionBar().show();
                 break;
 //            case 3:
 //                fragment = new CommunityFragment();

@@ -3,6 +3,7 @@ package com.example.bs_36.mydesign.helper;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Point;
+import android.os.Environment;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ import java.util.Locale;
  */
 public class Utils {
     private Context _context;
+    private File root;
+    private ArrayList<File> fileList = new ArrayList<File>();
 
     // constructor
     public Utils(Context context) {
@@ -27,6 +30,11 @@ public class Utils {
      */
     public ArrayList<String> getFilePaths() {
         ArrayList<String> filePaths = new ArrayList<String>();
+
+
+        root = new File(Environment.getExternalStorageDirectory()
+                .getAbsolutePath());
+        getfile(root);
 
         File directory = new File(
                 android.os.Environment.getExternalStorageDirectory()
@@ -71,6 +79,30 @@ public class Utils {
         }
 
         return filePaths;
+    }
+    public ArrayList<File> getfile(File dir) {
+        File listFile[] = dir.listFiles();
+        if (listFile != null && listFile.length > 0) {
+            for (int i = 0; i < listFile.length; i++) {
+
+                if (listFile[i].isDirectory()) {
+                    fileList.add(listFile[i]);
+                    getfile(listFile[i]);
+
+                } else {
+                    if (listFile[i].getName().endsWith(".png")
+                            || listFile[i].getName().endsWith(".jpg")
+                            || listFile[i].getName().endsWith(".jpeg")
+                            || listFile[i].getName().endsWith(".gif"))
+
+                    {
+                        fileList.add(listFile[i]);
+                    }
+                }
+
+            }
+        }
+        return fileList;
     }
 
     /*

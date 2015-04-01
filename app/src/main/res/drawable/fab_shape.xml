@@ -228,6 +228,9 @@
             <item>
                 <shape android:shape="oval">
                     <solid android:color="#03A9F4"/>
+                    <!--<size-->
+                        <!--android:height="360dp"-->
+                        <!--android:width="360dp"/>-->
                 </shape>
             </item>
         </layer-list>

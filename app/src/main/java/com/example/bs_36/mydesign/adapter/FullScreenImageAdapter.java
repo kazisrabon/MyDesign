@@ -1,5 +1,6 @@
 package com.example.bs_36.mydesign.adapter;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -24,12 +25,12 @@ import com.example.bs_36.mydesign.helper.TouchImageView;
 public class FullScreenImageAdapter extends PagerAdapter {
 
     private Activity _activity;
-    private ArrayList<String> _imagePaths;
+    private ArrayList<File> _imagePaths;
     private LayoutInflater inflater;
 
     // constructor
     public FullScreenImageAdapter(Activity activity,
-                                  ArrayList<String> imagePaths) {
+                                  ArrayList<File> imagePaths) {
         this._activity = activity;
         this._imagePaths = imagePaths;
     }
@@ -59,7 +60,7 @@ public class FullScreenImageAdapter extends PagerAdapter {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        Bitmap bitmap = BitmapFactory.decodeFile(_imagePaths.get(position), options);
+        Bitmap bitmap = BitmapFactory.decodeFile(_imagePaths.get(position).toString(), options);
         imgDisplay.setImageBitmap(bitmap);
 
         // close button click event
